@@ -1,8 +1,13 @@
+import Image from "next/image";
+import Navbar from "./components/Navbar";
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="font-sf-pro-rounded font-extrabold">AQMS</h1>
-      <h1 className="font-sf-pro font-bold">AQMS</h1>
+    <div className="bg-[url('/bg.svg')] bg-cover bg-center bg-no-repeat h-screen">
+      <Navbar/>
+      {/* <div className="w-full h-full">
+        <Image src="/bg.svg" alt="bg" width={500} height={500} className="w-full h-full"/>
+      </div> */}
     </div>
   );
 }
