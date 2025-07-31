@@ -8,6 +8,7 @@
 
 @theme inline {
   --color-blue-light: #3FA2F6;
+  --color-blue-darkest: #0F67B1;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sf-pro: var(--font-sf-pro);
