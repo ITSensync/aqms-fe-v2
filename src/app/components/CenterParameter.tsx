@@ -1,8 +1,13 @@
 "use client";
 import React from "react";
 import GaugeDiagram from "./GaugeDiagram";
+import { AirQuality } from "../types/Datatypes";
 
-export default function CenterParameter() {
+export default function CenterParameter({
+  sensorData,
+}: {
+  sensorData: AirQuality;
+}) {
   return (
     <div className="flex flex-col gap-14">
       <div className="flex flex-row mt-1">
