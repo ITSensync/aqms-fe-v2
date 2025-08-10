@@ -13,13 +13,13 @@ export default function ParameterLeft({
         <TextValue param="Arah Angin"/>
       </div>
       <div className="flex flex-col ml-3 w-1/2 gap-0">
-        <TextValue param="Kecepatan Angin" unit="mph"/>
+        <TextValue param="Kec. Angin" unit="mph"/>
       </div>
       <div className="flex flex-col ml-3 w-1/2 gap-0">
         <TextValue param="Suhu" unit="°C"/>
       </div>
       <div className="flex flex-col ml-3 w-1/2 gap-0">
-        <TextValue param="Kelembapan" unit="%"/>
+        <TextValue param="Kelembapan" unit="%RH"/>
       </div>
     </div>
   );

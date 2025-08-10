@@ -14,7 +14,7 @@ export default function ParameterRight({
         <TextValue side="right" param="Curah Hujan" unit="mm/jam"/>
       </div>
       <div className="flex flex-col mr-3 w-1/2 gap-0">
-        <TextValue side="right" param="Tekanan" unit="psi"/>
+        <TextValue side="right" param="Tekanan" unit="mBar"/>
       </div>
       <div className="flex flex-col mr-3 w-1/2 gap-0">
         <TextValue side="right" param="Solar Radiasi" unit="w/m2"/>
