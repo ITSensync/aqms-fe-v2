@@ -17,9 +17,10 @@ export default function GaugeDiagram({
   return (
     <>
       <GaugeComponent
+        value={Number(value)}
         className={`${
           process.env.AQMS_TYPE === "mini"
-            ? "w-[14vw] ml-6"
+            ? "w-[14vw] ml-6 -mr-4"
             : "w-[10vw] ml-10 -mt-9"
         }`}
         type="radial"
@@ -89,7 +90,7 @@ export default function GaugeDiagram({
       {process.env.AQMS_TYPE === "mini" ? (
         <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center gap-2">
           <div className="flex flex-row items-end gap-0.5">
-            <p className="font-black text-5xl">{value}</p>
+            <p className="font-black text-4xl">{value}</p>
             <p className="text-xl">{unit}</p>
           </div>
           <p className="text-2xl font-semibold text-center">{name}</p>

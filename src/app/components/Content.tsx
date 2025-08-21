@@ -48,14 +48,13 @@ export default function Content() {
     };
 
     const responseData = await sensorDataService.getlatest();
-    setSensorData(dummy);
+    setSensorData(responseData.data);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  console.log(sensorData);
   return (
     <div className="flex flex-row justify-between">
       <div className="w-1/3 px-12 pt-12">
