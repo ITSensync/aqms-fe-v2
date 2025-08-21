@@ -8,7 +8,7 @@ export default function CenterParameterMini({
   sensorData: AirQuality
 }) {
   return (
-    <div className="flex flex-col gap-14">
+    <div className="flex flex-col gap-20 mt-16">
       <div className="flex flex-row">
         <GaugeDiagram name="PM2.5" unit="μg/m3" value={sensorData.pm25}/>
       </div>

@@ -6,6 +6,8 @@ import CenterParameter from "./CenterParameter";
 import CenterParameterMini from "./CenterParameterMini";
 import { sensorDataService } from "../data/actions";
 import { AirQuality } from "../types/Datatypes";
+import ParameterLeftMini from "./ParameterLeftMini";
+import ParameterRightMini from "./ParameterRightMini";
 
 export default function Content() {
   const [sensorData, setSensorData] = useState<AirQuality>({
@@ -58,7 +60,11 @@ export default function Content() {
   return (
     <div className="flex flex-row justify-between">
       <div className="w-1/3 px-12 pt-12">
-        <ParameterLeft sensorData={sensorData} />
+        {process.env.AQMS_TYPE === "mini" ? (
+          <ParameterLeftMini sensorData={sensorData} />
+        ) : (
+          <ParameterLeft sensorData={sensorData} />
+        )}
       </div>
       <div className="w-1/3 px-12 pt-12">
         {process.env.AQMS_TYPE === "mini" ? (
@@ -68,7 +74,11 @@ export default function Content() {
         )}
       </div>
       <div className="w-1/3 px-12 pt-11">
-        <ParameterRight sensorData={sensorData} />
+        {process.env.AQMS_TYPE === "mini" ? (
+          <ParameterRightMini sensorData={sensorData} />
+        ) : (
+          <ParameterRight sensorData={sensorData} />
+        )}
       </div>
     </div>
   );

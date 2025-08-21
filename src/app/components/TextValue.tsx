@@ -16,7 +16,7 @@ export default function TextValue({
       <p className={`font-sf-pro text-xl text-blue-darkest font-bold ${side === 'right' && 'text-end'}`}>
         {param}
       </p>
-      <p className="font-sf-pro text-7xl text-blue-darkest font-black text-center">
+      <p className="font-sf-pro text-4xl text-blue-darkest font-black text-center">
         {value}
       </p>
       <p className={`font-sf-pro text-xl text-blue-darkest font-bold -mt-3 ${side === 'left' && 'text-end'}`}>

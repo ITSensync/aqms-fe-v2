@@ -1,7 +1,17 @@
+'use client';
 import Navbar from "./components/Navbar";
 import Content from "./components/Content";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload(); // reload full page
+    }, 5 * 60 * 1000); // 5 menit
+
+    return () => clearInterval(interval); // cleanup
+  }, []);
+
   return (
     <div
       className={`${
