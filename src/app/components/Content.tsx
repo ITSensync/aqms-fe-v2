@@ -71,7 +71,7 @@ export default function Content() {
         {process.env.AQMS_TYPE === "mini" ? (
           <CenterParameterMini sensorData={sensorData} />
         ) : process.env.AQMS_TYPE === 'supermini' ? (
-          <CenterParameterSuperMini />
+          <CenterParameterSuperMini sensorData={sensorData}/>
         ) : (
           <CenterParameter sensorData={sensorData} />
         )}
