@@ -6,7 +6,7 @@ const GaugeComponent = dynamic(() => import("react-gauge-component"), {
 });
 
 export default function GaugeDiagram({
-  value = "30",
+  value = "1000.20",
   unit = "W/m3",
   name = "Lorem",
 }: {
@@ -21,7 +21,7 @@ export default function GaugeDiagram({
         className={`${
           process.env.AQMS_TYPE === "mini"
             ? "w-[14vw] ml-6 -mr-4"
-            : "w-[10vw] ml-10 -mt-9"
+            : process.env.AQMS_TYPE === "supermini" ? "w-[20vw] ml-10" : "w-[10vw] ml-10 -mt-9"
         }`}
         type="radial"
         arc={{
@@ -94,6 +94,14 @@ export default function GaugeDiagram({
             <p className="text-xl">{unit}</p>
           </div>
           <p className="text-2xl font-semibold text-center">{name}</p>
+        </div>
+      ) : process.env.AQMS_TYPE === "supermini" ?  (
+        <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center gap-4">
+          <div className="flex flex-row items-end gap-0.5">
+            <p className="font-black text-5xl">{value}</p>
+            <p className="text-xl">{unit}</p>
+          </div>
+          <p className="text-4xl font-semibold text-center">{name}</p>
         </div>
       ) : (
         <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center ml-6 -mt-6">

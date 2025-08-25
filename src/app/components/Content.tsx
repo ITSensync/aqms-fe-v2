@@ -8,6 +8,7 @@ import { sensorDataService } from "../data/actions";
 import { AirQuality } from "../types/Datatypes";
 import ParameterLeftMini from "./ParameterLeftMini";
 import ParameterRightMini from "./ParameterRightMini";
+import CenterParameterSuperMini from "./CenterParameterSuperMini";
 
 export default function Content() {
   const [sensorData, setSensorData] = useState<AirQuality>({
@@ -60,7 +61,7 @@ export default function Content() {
   return (
     <div className="flex flex-row justify-between">
       <div className="w-1/3 px-12 pt-12">
-        {process.env.AQMS_TYPE === "mini" ? (
+        {process.env.AQMS_TYPE === "mini" || process.env.AQMS_TYPE === "supermini" ? (
           <ParameterLeftMini sensorData={sensorData} />
         ) : (
           <ParameterLeft sensorData={sensorData} />
@@ -69,12 +70,14 @@ export default function Content() {
       <div className="w-1/3 px-12 pt-12">
         {process.env.AQMS_TYPE === "mini" ? (
           <CenterParameterMini sensorData={sensorData} />
+        ) : process.env.AQMS_TYPE === 'supermini' ? (
+          <CenterParameterSuperMini />
         ) : (
           <CenterParameter sensorData={sensorData} />
         )}
       </div>
       <div className="w-1/3 px-12 pt-11">
-        {process.env.AQMS_TYPE === "mini" ? (
+        {process.env.AQMS_TYPE === "mini" || process.env.AQMS_TYPE === "supermini" ? (
           <ParameterRightMini sensorData={sensorData} />
         ) : (
           <ParameterRight sensorData={sensorData} />
