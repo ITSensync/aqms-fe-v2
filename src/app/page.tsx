@@ -16,7 +16,7 @@ export default function Home() {
     <div
       className={`${
         process.env.AQMS_TYPE === "mini"
-          ? `bg-[url('/bg_super_mini_v2.svg')]`
+          ? `bg-[url('/bg_mini.svg')]`
           : process.env.AQMS_TYPE === 'supermini' ? `bg-[url('/bg_super_mini_v3.svg')]` : `bg-[url('/bg.svg')]`
       } bg-cover bg-center bg-no-repeat h-screen`}
     >
