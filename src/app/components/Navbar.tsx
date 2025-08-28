@@ -11,21 +11,33 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    // Set initial status
-    setIsOnline(navigator.onLine);
+    const checkOnlineStatus = async () => {
+      try {
+        const res = await fetch("/api/ping");
+        const data = await res.json();
+        setIsOnline(data.online);
+      } catch {
+        setIsOnline(false);
+      }
+    };
 
-    // Define handlers for online/offline events
-    const handleOnline = () => setIsOnline(true);
+    // cek pertama kali
+    checkOnlineStatus();
+
+    // tambahkan event listener online/offline
+    const handleOnline = () => checkOnlineStatus();
     const handleOffline = () => setIsOnline(false);
 
-    // Add event listeners
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
 
-    // Cleanup event listeners on component unmount
+    // opsional: polling setiap beberapa detik
+    const interval = setInterval(checkOnlineStatus, 10000);
+
     return () => {
       window.removeEventListener("online", handleOnline);
       window.removeEventListener("offline", handleOffline);
+      clearInterval(interval);
     };
   }, []);
 
@@ -36,7 +48,10 @@ export default function Navbar() {
   return (
     <div className="navbar bg-blue-light/50 shadow-sm">
       <div className="w-full flex justify-between items-center mx-5 my-2">
-        <div className="flex flex-row items-center gap-4 hover:cursor-pointer" onClick={handleHomeClick}>
+        <div
+          className="flex flex-row items-center gap-4 hover:cursor-pointer"
+          onClick={handleHomeClick}
+        >
           <Image src={"/klhk.png"} width={80} height={80} alt="klhk logo" />
           <a className="text-3xl text-white font-extrabold font-sf-pro-rounded">
             SPKUA - BANDUNG
