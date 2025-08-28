@@ -35,23 +35,27 @@ export default function Content() {
       id: "272",
       tanggal: "2025-08-07",
       jam: "14:20:00",
+      hc: "20",
+      o3: "10.5",
+      co: "80.4",
       no2: "20",
       so2: "23",
       pm25: "6",
-      ws: "0",
-      wd: "0",
-      humidity: "0",
-      temperature: "0",
-      pressure: "0",
-      sr: "0",
-      rain_intensity: "0",
+      pm10: "40",
+      ws: "140",
+      wd: "21",
+      humidity: "20",
+      temperature: "27",
+      pressure: "4",
+      sr: "5",
+      rain_intensity: "10",
       stat_conn: "ada",
       feedback: '{"status":"success","inserted":1,"failed":0}',
       feedback2: '{"status":"received","inserted":1,"failed":0}',
     };
 
     const responseData = await sensorDataService.getlatest();
-    setSensorData(responseData.data);
+    setSensorData(dummy);
   };
 
   useEffect(() => {
