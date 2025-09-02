@@ -54,7 +54,7 @@ export default function Content() {
       feedback2: '{"status":"received","inserted":1,"failed":0}',
     };
 
-    const responseData = await sensorDataService.getlatest();
+    // const responseData = await sensorDataService.getlatest();
     setSensorData(dummy);
   };
 
