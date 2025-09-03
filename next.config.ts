@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   env: {
     AQMS_TYPE: process.env.AQMS_TYPE,
     API_URL: process.env.API_URL,
+    WS_URL: process.env.WS_URL,
   }
 };
 

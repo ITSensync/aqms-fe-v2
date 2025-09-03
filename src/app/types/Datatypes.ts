@@ -20,3 +20,11 @@ export type AirQuality = {
   feedback: string;
   feedback2: string;
 };
+
+export type Location = {
+  id: number;
+  lat: number;
+  long: number;
+  updatedAt: string;
+  createdAt: string;
+};

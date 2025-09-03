@@ -5,10 +5,42 @@ import DigitalClock from "./DigitalClock";
 import WifiIcon from "@mui/icons-material/Wifi";
 import WifiOffIcon from "@mui/icons-material/WifiOff";
 import { useRouter } from "next/navigation";
+import { locationService } from "../data/actions";
+import { Location } from "../types/Datatypes";
 
 export default function Navbar() {
   const [isOnline, setIsOnline] = useState(true);
+  const [location, setLocation] = useState({
+    lat: 0,
+    long: 0,
+  });
   const router = useRouter();
+
+  const loadLocation = async () => {
+    try {
+      const locResponse = await locationService.getLocation();
+      if (locResponse.data) {
+        const locData: Location = locResponse.data;
+        setLocation({
+          lat: locData.lat,
+          long: locData.long,
+        });
+      } else {
+        throw {
+          message: "Failed To Get Location",
+        };
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    loadLocation();
+
+    const interval = setInterval(loadLocation, 30 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const checkOnlineStatus = async () => {
@@ -32,7 +64,7 @@ export default function Navbar() {
     window.addEventListener("offline", handleOffline);
 
     // opsional: polling setiap beberapa detik
-    const interval = setInterval(checkOnlineStatus, 10000);
+    const interval = setInterval(checkOnlineStatus, 300000);
 
     return () => {
       window.removeEventListener("online", handleOnline);
@@ -72,11 +104,13 @@ export default function Navbar() {
               </svg>
 
               <a className="font-sf-pro-rounded text-lg text-blue-darkest">
-                <span className="font-extrabold">6.403</span> <span className="">&deg;LU</span>
+                <span className="font-extrabold">{location.lat.toFixed(3)}</span>{" "}
+                <span className="">&deg;LU</span>
               </a>
               <a className="font-sf-pro-rounded text-lg text-blue-darkest">,</a>
               <a className="font-sf-pro-rounded text-lg text-blue-darkest">
-                <span className="font-extrabold">141.322</span> <span className="">&deg;LS</span>
+                <span className="font-extrabold">{location.long.toFixed(3)}</span>{" "}
+                <span className="">&deg;LS</span>
               </a>
             </div>
           </div>
