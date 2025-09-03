@@ -12,7 +12,7 @@ export class SensorDataService {
 
   getlatest = () => {
     return this.instance
-      .get(`/get_last.php`)
+      .get(`/latest`)
       .then((res) => {
         return res.data;
       })

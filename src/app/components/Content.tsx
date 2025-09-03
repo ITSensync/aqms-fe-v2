@@ -30,6 +30,29 @@ export default function Content() {
     feedback2: "",
   });
 
+  const wsFetch = () => {
+    const ws = new WebSocket(`${process.env.WS_URL as string}`);
+
+    ws.onopen = () => {
+      console.log("Websocket Connected");
+      ws.send('');
+    };
+
+    ws.onmessage = (event) => {
+      const receivedData = JSON.parse(event.data);
+      const particulateResult: AirQuality = receivedData;
+      setSensorData(particulateResult);
+    };
+
+    ws.onclose = () => {
+      console.log("WebSocket disconnected");
+    };
+
+    return () => {
+      ws.close();
+    };
+  };
+
   const fetchData = async () => {
     const dummy = {
       id: "272",
@@ -59,13 +82,15 @@ export default function Content() {
   };
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
+    wsFetch();
   }, []);
 
   return (
     <div className="flex flex-row justify-between">
       <div className="w-1/3 px-12 pt-12">
-        {process.env.AQMS_TYPE === "mini" || process.env.AQMS_TYPE === "supermini" ? (
+        {process.env.AQMS_TYPE === "mini" ||
+        process.env.AQMS_TYPE === "supermini" ? (
           <ParameterLeftMini sensorData={sensorData} />
         ) : (
           <ParameterLeft sensorData={sensorData} />
@@ -74,14 +99,15 @@ export default function Content() {
       <div className="w-1/3 px-12 pt-12">
         {process.env.AQMS_TYPE === "mini" ? (
           <CenterParameterMini sensorData={sensorData} />
-        ) : process.env.AQMS_TYPE === 'supermini' ? (
-          <CenterParameterSuperMini sensorData={sensorData}/>
+        ) : process.env.AQMS_TYPE === "supermini" ? (
+          <CenterParameterSuperMini sensorData={sensorData} />
         ) : (
           <CenterParameter sensorData={sensorData} />
         )}
       </div>
       <div className="w-1/3 px-12 pt-11">
-        {process.env.AQMS_TYPE === "mini" || process.env.AQMS_TYPE === "supermini" ? (
+        {process.env.AQMS_TYPE === "mini" ||
+        process.env.AQMS_TYPE === "supermini" ? (
           <ParameterRightMini sensorData={sensorData} />
         ) : (
           <ParameterRight sensorData={sensorData} />
