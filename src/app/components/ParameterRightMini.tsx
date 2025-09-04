@@ -40,13 +40,13 @@ export default function ParameterRightMini({
       </div> */}
       <div className="flex flex-col gap-4">
         <Link href={"/report"}>
-          <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black">
+          <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black text-white">
             Lihat Laporan{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="size-6"
+              className="size-6 text-white"
             >
               <path
                 fillRule="evenodd"
@@ -58,13 +58,13 @@ export default function ParameterRightMini({
           </button>
         </Link>
         <Link href={"/graph"}>
-          <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black">
+          <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black text-white">
             Grafik / Trend{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="size-6"
+              className="size-6 text-white"
             >
               <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
             </svg>
