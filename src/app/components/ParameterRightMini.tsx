@@ -9,7 +9,7 @@ export default function ParameterRightMini({
   sensorData: AirQuality;
 }) {
   return (
-    <div className="flex flex-col justify-end items-end gap-16">
+    <div className="flex flex-col justify-end items-end gap-18">
       {/* PM10 */}
       <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4 mt-0 md:mt-13">
         <TextValue
@@ -27,7 +27,7 @@ export default function ParameterRightMini({
           value={sensorData.pressure}
         />
       </div>
-      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-5">
+      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4">
         <TextValue
           side="right"
           param="Solar Radiasi"
