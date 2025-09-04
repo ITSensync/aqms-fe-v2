@@ -11,7 +11,7 @@ export default function ParameterRightMini({
   return (
     <div className="flex flex-col justify-end items-end gap-16">
       {/* PM10 */}
-      <div className="flex flex-col mr-3 w-1/2 gap-4">
+      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4 mt-0 md:mt-13">
         <TextValue
           side="right"
           param="Curah Hujan"
@@ -19,7 +19,7 @@ export default function ParameterRightMini({
           value={sensorData.rain_intensity}
         />
       </div>
-      <div className="flex flex-col mr-3 w-1/2 gap-4">
+      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4">
         <TextValue
           side="right"
           param="Tekanan"
@@ -27,7 +27,7 @@ export default function ParameterRightMini({
           value={sensorData.pressure}
         />
       </div>
-      <div className="flex flex-col mr-3 w-1/2 gap-5">
+      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-5">
         <TextValue
           side="right"
           param="Solar Radiasi"
