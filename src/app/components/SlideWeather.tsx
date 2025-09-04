@@ -161,7 +161,11 @@ export default function SlideWeather() {
       </div>
       <div className="p-4">
         <div className="w-full bg-white opacity-85 p-2 rounded-box">
-          <LineGraph param="weather" height={100} buttonStateWeather={buttonState}/>
+          <LineGraph
+            param="weather"
+            height={process.env.AQMS_TYPE === "supermini" ? 150 : 100}
+            buttonStateWeather={buttonState}
+          />
         </div>
       </div>
     </>

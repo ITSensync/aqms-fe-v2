@@ -117,7 +117,11 @@ export default function SlideGas() {
       </div>
       <div className="p-4">
         <div className="w-full bg-white opacity-85 p-2 rounded-box">
-          <LineGraph param="gas" height={120} buttonStateGas={buttonState}/>
+          <LineGraph
+            param="gas"
+            height={process.env.AQMS_TYPE === "supermini" ? 160 : 120}
+            buttonStateGas={buttonState}
+          />
         </div>
       </div>
     </>
