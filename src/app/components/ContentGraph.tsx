@@ -15,7 +15,16 @@ export default function ContentGraph() {
   const [sensorData, setSensorData] = useState<AirQuality[]>([]);
   const fetchData = async () => {
     try {
-      const response = await sensorDataService.get("2025-09-05");
+      const today = new Date();
+
+      const now =
+        today.getFullYear() +
+        "-" +
+        String(today.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(today.getDate()).padStart(2, "0");
+
+      const response = await sensorDataService.get(now);
       console.log(response);
 
       setSensorData(response.data);

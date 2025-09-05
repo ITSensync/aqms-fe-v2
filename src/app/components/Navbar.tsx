@@ -87,7 +87,7 @@ export default function Navbar() {
           <Image src={"/klhk.png"} width={80} height={80} alt="klhk logo" />
           <div className="flex flex-col gap-1">
             <a className="text-3xl text-white font-extrabold font-sf-pro-rounded">
-              SPKUA - BANDUNG
+              SPKU - {process.env.AQMS_SITE}
             </a>
             <div className="flex flex-row gap-2 align-middle items-center">
               <svg
