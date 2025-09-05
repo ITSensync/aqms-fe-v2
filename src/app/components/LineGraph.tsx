@@ -16,7 +16,7 @@ import {
 type StateGas = {
   hc: boolean;
   so2: boolean;
-  no3: boolean;
+  no2: boolean;
   o3: boolean;
   co: boolean;
 };
@@ -31,9 +31,14 @@ type StateWeather = {
   rain: boolean;
 };
 
+type StatePM = {
+  pm10: boolean;
+  pm25: boolean;
+};
+
 export default function LineGraph({
   param,
-  buttonStateGas = { hc: false, so2: false, no3: false, o3: false, co: false },
+  buttonStateGas = { hc: false, so2: false, no2: false, o3: false, co: false },
   buttonStateWeather = {
     ws: false,
     wd: false,
@@ -43,11 +48,13 @@ export default function LineGraph({
     sr: false,
     rain: false,
   },
+  buttonStatePm = { pm10: false, pm25: false },
   height = 100,
 }: {
   param: string;
   buttonStateGas?: StateGas;
   buttonStateWeather?: StateWeather;
+  buttonStatePm?: StatePM;
   height: number;
 }) {
   Chart.register(
@@ -60,58 +67,80 @@ export default function LineGraph({
     Legend
   );
 
+  const generateColorPm = (state: StatePM) => {
+    switch (true) {
+      case state.pm10:
+        return "rgba(0, 150, 136, 0.9)";
+      case state.pm25:
+        return "rgba(63, 81, 181, 0.9)";
+      default:
+        return "rgba(0, 0, 0, 1)";
+    }
+  };
+
   const generateColorGas = (state: StateGas) => {
     switch (true) {
       case state.hc:
-        return "rgba(255, 138, 128, 0.8)"; // soft coral / merah pastel
+        return "rgba(255, 138, 128, 0.8)";
       case state.so2:
-        return "rgba(255, 183, 77, 0.8)"; // soft orange pastel
-      case state.no3:
-        return "rgba(129, 212, 250, 0.8)"; // soft sky blue pastel
+        return "rgba(255, 183, 77, 0.8)";
+      case state.no2:
+        return "rgba(129, 212, 250, 0.8)";
       case state.o3:
-        return "rgba(174, 213, 129, 0.8)"; // soft green pastel
+        return "rgba(174, 213, 129, 0.8)";
       case state.co:
-        return "rgba(186, 104, 200, 0.8)"; // soft purple pastel
+        return "rgba(186, 104, 200, 0.8)";
       default:
-        return "rgba(0, 0, 0, 1)"; // default hitam
+        return "rgba(0, 0, 0, 1)";
     }
   };
 
   const generateColorWeather = (state: StateWeather) => {
     switch (true) {
       case state.ws:
-        return "rgba(255, 0, 0, 1)"; // merah terang
+        return "rgba(255, 0, 0, 1)";
       case state.wd:
-        return "rgba(255, 165, 0, 1)"; // oranye
+        return "rgba(255, 165, 0, 1)";
       case state.temp:
-        return "rgba(0, 123, 255, 1)"; // biru
+        return "rgba(0, 123, 255, 1)";
       case state.hum:
-        return "rgba(0, 200, 83, 1)"; // hijau
+        return "rgba(0, 200, 83, 1)";
       case state.press:
-        return "rgba(156, 39, 176, 1)"; // ungu
+        return "rgba(156, 39, 176, 1)";
       case state.rain:
-        return "rgba(33, 150, 243, 1)"; // biru muda
+        return "rgba(33, 150, 243, 1)";
       case state.sr:
-        return "rgba(255, 193, 7, 1)"; // kuning emas
+        return "rgba(255, 193, 7, 1)";
       default:
-        return "rgba(0, 0, 0, 1)"; // hitam
+        return "rgba(0, 0, 0, 1)";
     }
   };
 
   const generateTextGas = (state: StateGas) => {
     switch (true) {
       case state.hc:
-        return "HC"; // soft coral / merah pastel
+        return "HC";
       case state.so2:
-        return "SO2"; // soft orange pastel
-      case state.no3:
-        return "NO3"; // soft sky blue pastel
+        return "SO2";
+      case state.no2:
+        return "NO2";
       case state.o3:
-        return "O3"; // soft green pastel
+        return "O3";
       case state.co:
-        return "CO"; // soft purple pastel
+        return "CO";
       default:
-        return "-"; // default hitam
+        return "-";
+    }
+  };
+
+  const generateTextPm = (state: StatePM) => {
+    switch (true) {
+      case state.pm10:
+        return "PM10";
+      case state.pm25:
+        return "PM25";
+      default:
+        return "-";
     }
   };
 
@@ -145,10 +174,14 @@ export default function LineGraph({
         borderColor:
           param === "gas"
             ? generateColorGas(buttonStateGas)
+            : param === "pm"
+            ? generateColorPm(buttonStatePm)
             : generateColorWeather(buttonStateWeather),
         backgroundColor:
           param === "gas"
             ? generateColorGas(buttonStateGas)
+            : param === "pm"
+            ? generateColorPm(buttonStatePm)
             : generateColorWeather(buttonStateWeather),
         tension: 0.4,
       },
@@ -166,11 +199,16 @@ export default function LineGraph({
         text: `${
           param === "gas"
             ? generateTextGas(buttonStateGas)
+            : param === "pm"
+            ? generateTextPm(buttonStatePm)
             : generateTextWeather(buttonStateWeather)
         } Data Chart`,
         font: { size: 20, family: "SF Pro Rounded" },
-        color: param === "gas"
+        color:
+          param === "gas"
             ? generateColorGas(buttonStateGas)
+            : param === "pm"
+            ? generateColorPm(buttonStatePm)
             : generateColorWeather(buttonStateWeather),
       },
     },

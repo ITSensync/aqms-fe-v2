@@ -4,9 +4,9 @@ import LineGraph from "./LineGraph";
 
 export default function SlideGas() {
   const [buttonState, setButtonState] = useState({
-    hc: true,
-    so2: false,
-    no3: false,
+    hc: process.env.AQMS_TYPE === 'normal',
+    so2: process.env.AQMS_TYPE === 'mini',
+    no2: false,
     o3: false,
     co: false,
   });
@@ -15,7 +15,7 @@ export default function SlideGas() {
     const newState = {
       hc: true,
       so2: false,
-      no3: false,
+      no2: false,
       o3: false,
       co: false,
     };
@@ -27,7 +27,7 @@ export default function SlideGas() {
     const newState = {
       hc: false,
       so2: true,
-      no3: false,
+      no2: false,
       o3: false,
       co: false,
     };
@@ -35,11 +35,11 @@ export default function SlideGas() {
     setButtonState(newState);
   };
 
-  const handleBtnNO3 = () => {
+  const handleBtnNO2 = () => {
     const newState = {
       hc: false,
       so2: false,
-      no3: true,
+      no2: true,
       o3: false,
       co: false,
     };
@@ -51,7 +51,7 @@ export default function SlideGas() {
     const newState = {
       hc: false,
       so2: false,
-      no3: false,
+      no2: false,
       o3: true,
       co: false,
     };
@@ -63,7 +63,7 @@ export default function SlideGas() {
     const newState = {
       hc: false,
       so2: false,
-      no3: false,
+      no2: false,
       o3: false,
       co: true,
     };
@@ -73,15 +73,23 @@ export default function SlideGas() {
 
   return (
     <>
-      <div className="grid grid-cols-5 gap-10 p-4 mt-4">
-        <div
-          onClick={handleBtnHC}
-          className={`${
-            buttonState.hc ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
-        >
-          HC
-        </div>
+      <div
+        className={`grid ${
+          process.env.AQMS_TYPE === "normal" ? "grid-cols-5" : "grid-cols-2"
+        } gap-10 p-4 mt-4`}
+      >
+        {process.env.AQMS_TYPE === "normal" && (
+          <>
+            <div
+              onClick={handleBtnHC}
+              className={`${
+                buttonState.hc ? "bg-blue-darkest" : "bg-blue-light opacity-85"
+              } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+            >
+              HC
+            </div>
+          </>
+        )}
         <div
           onClick={handleBtnSO2}
           className={`${
@@ -91,29 +99,33 @@ export default function SlideGas() {
           SO2
         </div>
         <div
-          onClick={handleBtnNO3}
+          onClick={handleBtnNO2}
           className={`${
-            buttonState.no3 ? "bg-blue-darkest" : "bg-blue-light opacity-85"
+            buttonState.no2 ? "bg-blue-darkest" : "bg-blue-light opacity-85"
           } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
-          NO3
+          NO2
         </div>
-        <div
-          onClick={handleBtnO3}
-          className={`${
-            buttonState.o3 ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
-        >
-          O3
-        </div>
-        <div
-          onClick={handleBtnCO}
-          className={`${
-            buttonState.co ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
-        >
-          CO
-        </div>
+        {process.env.AQMS_TYPE === "normal" && (
+          <>
+            <div
+              onClick={handleBtnO3}
+              className={`${
+                buttonState.o3 ? "bg-blue-darkest" : "bg-blue-light opacity-85"
+              } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+            >
+              O3
+            </div>
+            <div
+              onClick={handleBtnCO}
+              className={`${
+                buttonState.co ? "bg-blue-darkest" : "bg-blue-light opacity-85"
+              } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+            >
+              CO
+            </div>
+          </>
+        )}
       </div>
       <div className="p-4">
         <div className="w-full bg-white opacity-85 p-2 rounded-box">

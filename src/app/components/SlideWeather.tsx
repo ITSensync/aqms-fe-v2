@@ -140,7 +140,7 @@ export default function SlideWeather() {
             buttonState.rain ? "bg-blue-darkest" : "bg-blue-light opacity-85"
           } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
-          Curah Hujan
+          CURAH HUJAN
         </div>
         <div
           onClick={handleBtnPress}
