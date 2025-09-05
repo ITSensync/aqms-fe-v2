@@ -11,6 +11,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { AirQuality } from "../types/Datatypes";
 
 // Dynamically import ApexCharts to prevent SSR issues
 type StateGas = {
@@ -38,6 +39,7 @@ type StatePM = {
 
 export default function LineGraph({
   param,
+  sensorData,
   buttonStateGas = { hc: false, so2: false, no2: false, o3: false, co: false },
   buttonStateWeather = {
     ws: false,
@@ -52,6 +54,7 @@ export default function LineGraph({
   height = 100,
 }: {
   param: string;
+  sensorData: AirQuality[];
   buttonStateGas?: StateGas;
   buttonStateWeather?: StateWeather;
   buttonStatePm?: StatePM;
@@ -165,12 +168,71 @@ export default function LineGraph({
     }
   };
 
+  const renderDataPm = (state: StatePM, pmData: AirQuality) => {
+    switch (true) {
+      case state.pm10:
+        return pmData.pm10;
+      case state.pm25:
+        return pmData.pm25;
+      default:
+        return 0;
+    }
+  };
+
+  const renderDataGas = (state: StateGas, gasData: AirQuality) => {
+    switch (true) {
+      case state.hc:
+        return gasData.hc;
+      case state.so2:
+        return gasData.so2;
+      case state.no2:
+        return gasData.no2;
+      case state.co:
+        return gasData.co;
+      case state.o3:
+        return gasData.o3;
+      default:
+        return 0;
+    }
+  };
+
+  const renderDataWeather = (state: StateWeather, weatherData: AirQuality) => {
+    switch (true) {
+      case state.ws:
+        return weatherData.ws;
+      case state.wd:
+        return weatherData.wd;
+      case state.hum:
+        return weatherData.humidity;
+      case state.temp:
+        return weatherData.temperature;
+      case state.press:
+        return weatherData.pressure;
+      case state.rain:
+        return weatherData.rain_intensity;
+      case state.sr:
+        return weatherData.sr;
+      default:
+        return 0;
+    }
+  };
+
   const data = {
-    labels: ["00.00", "01.00", "02.00", "03.00", "04.00", "05.00"],
+    labels: sensorData.map((data) => {
+      return data.jam.substring(0, 5);
+    }),
     datasets: [
       {
         label: "",
-        data: [80, 30, 40, 50, 60, 70],
+        data: sensorData.map((data) => {
+          if (param == "gas") {
+            return renderDataGas(buttonStateGas, data);
+          } else if (param === "pm") {
+            return renderDataPm(buttonStatePm, data);
+          } else {
+            return renderDataWeather(buttonStateWeather, data);
+          }
+        }),
         borderColor:
           param === "gas"
             ? generateColorGas(buttonStateGas)

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import LineGraph from "./LineGraph";
+import { AirQuality } from "../types/Datatypes";
 
-export default function SlidePm() {
+export default function SlidePm({ pmData }: { pmData: AirQuality[] }) {
   const [buttonState, setPmState] = useState({
     pm10: process.env.AQMS_TYPE === "normal",
     pm25: process.env.AQMS_TYPE !== "normal",
@@ -51,6 +52,7 @@ export default function SlidePm() {
         <div className="w-full bg-white opacity-85 p-2 rounded-box">
           <LineGraph
             param="pm"
+            sensorData={pmData}
             height={process.env.AQMS_TYPE === "supermini" ? 150 : 120}
             buttonStatePm={buttonState}
           />

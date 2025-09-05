@@ -1,8 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import LineGraph from "./LineGraph";
+import { AirQuality } from "../types/Datatypes";
 
-export default function SlideWeather() {
+export default function SlideWeather({
+  weatherData,
+}: {
+  weatherData: AirQuality[];
+}) {
   const [buttonState, setWeatherState] = useState({
     ws: true,
     wd: false,
@@ -163,6 +168,7 @@ export default function SlideWeather() {
         <div className="w-full bg-white opacity-85 p-2 rounded-box">
           <LineGraph
             param="weather"
+            sensorData={weatherData}
             height={process.env.AQMS_TYPE === "supermini" ? 150 : 100}
             buttonStateWeather={buttonState}
           />

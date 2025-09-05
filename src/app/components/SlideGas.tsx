@@ -1,8 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import LineGraph from "./LineGraph";
+import { AirQuality } from "../types/Datatypes";
 
-export default function SlideGas() {
+export default function SlideGas({
+  gasData,
+}: {
+  gasData: AirQuality[];
+}) {
   const [buttonState, setButtonState] = useState({
     hc: process.env.AQMS_TYPE === 'normal',
     so2: process.env.AQMS_TYPE === 'mini',
@@ -131,6 +136,7 @@ export default function SlideGas() {
         <div className="w-full bg-white opacity-85 p-2 rounded-box">
           <LineGraph
             param="gas"
+            sensorData={gasData}
             height={process.env.AQMS_TYPE === "supermini" ? 160 : 120}
             buttonStateGas={buttonState}
           />
