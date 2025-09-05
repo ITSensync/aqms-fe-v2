@@ -4,7 +4,7 @@ import ParameterLeft from "./ParameterLeft";
 import ParameterRight from "./ParameterRight";
 import CenterParameter from "./CenterParameter";
 import CenterParameterMini from "./CenterParameterMini";
-import { sensorDataService } from "../data/actions";
+// import { sensorDataService } from "../data/actions";
 import { AirQuality } from "../types/Datatypes";
 import ParameterLeftMini from "./ParameterLeftMini";
 import ParameterRightMini from "./ParameterRightMini";
@@ -53,7 +53,7 @@ export default function Content() {
     };
   };
 
-  const fetchData = async () => {
+  /* const fetchData = async () => {
     const dummy = {
       id: "272",
       tanggal: "2025-08-07",
@@ -79,7 +79,7 @@ export default function Content() {
 
     // const responseData = await sensorDataService.getlatest();
     setSensorData(dummy);
-  };
+  }; */
 
   useEffect(() => {
     // fetchData();

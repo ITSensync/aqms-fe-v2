@@ -1,6 +1,5 @@
 'use client';
 import React from "react";
-import LineGraph from "./LineGraph";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
