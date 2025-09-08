@@ -44,7 +44,7 @@ export default function ContentReport() {
       <div className="overflow-x-auto rounded-box border border-base-content/5 bg-blue-light opacity-85">
         <table className="table text-white font-sf-pro-rounded">
           {/* head */}
-          <thead className="text-zinc-100 font-light">
+          <thead className="text-zinc-100 font-light text-center">
             <tr>
               <th></th>
               <th>Waktu</th>
@@ -78,7 +78,7 @@ export default function ContentReport() {
               <th>Radiasi</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-extrabold text-lg text-center">
             {sensorData.map((data, index) => {
               const rowNumber = (page - 1) * limit + (index + 1);
 
