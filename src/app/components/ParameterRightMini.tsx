@@ -2,6 +2,9 @@ import React from "react";
 import TextValue from "./TextValue";
 import { AirQuality } from "../types/Datatypes";
 import Link from "next/link";
+import { IoRainyOutline } from "react-icons/io5";
+import { GiSpeedometer } from "react-icons/gi";
+import { MdOutlineWbSunny } from "react-icons/md";
 
 export default function ParameterRightMini({
   sensorData,
@@ -13,6 +16,7 @@ export default function ParameterRightMini({
       {/* PM10 */}
       <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4 mt-0 md:mt-13">
         <TextValue
+          icon={<IoRainyOutline/>}
           side="right"
           param="Curah Hujan"
           unit="mm/jam"
@@ -21,6 +25,7 @@ export default function ParameterRightMini({
       </div>
       <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4">
         <TextValue
+          icon={<GiSpeedometer/>}
           side="right"
           param="Tekanan"
           unit="mBar"
@@ -29,6 +34,7 @@ export default function ParameterRightMini({
       </div>
       <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4">
         <TextValue
+          icon={<MdOutlineWbSunny/>}
           side="right"
           param="Solar Radiasi"
           unit="w/m2"

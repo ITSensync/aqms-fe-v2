@@ -2,6 +2,9 @@ import React from "react";
 import TextValue from "./TextValue";
 import { AirQuality } from "../types/Datatypes";
 import Link from "next/link";
+import { IoRainyOutline } from "react-icons/io5";
+import { GiSpeedometer } from "react-icons/gi";
+import { MdOutlineWbSunny } from "react-icons/md";
 
 export default function ParameterRight({
   sensorData,
@@ -9,10 +12,11 @@ export default function ParameterRight({
   sensorData: AirQuality;
 }) {
   return (
-    <div className="flex flex-col justify-end items-end gap-16">
+    <div className="flex flex-col justify-between items-end h-[78vh]">
       {/* PM10 */}
-      <div className="flex flex-col mr-3 w-1/2 gap-4 ">
+      <div className="flex flex-col mr-3 w-1/2 gap-4">
         <TextValue
+          icon={<IoRainyOutline />}
           side="right"
           param="Curah Hujan"
           unit="mm/jam"
@@ -21,24 +25,23 @@ export default function ParameterRight({
       </div>
       <div className="flex flex-col mr-3 w-1/2 gap-4">
         <TextValue
+          icon={<GiSpeedometer />}
           side="right"
           param="Tekanan"
           unit="mBar"
           value={sensorData.pressure}
         />
       </div>
-      <div className="flex flex-col mr-3 w-1/2 gap-5">
+      <div className="flex flex-col mr-3 w-1/2 gap-4 ">
         <TextValue
+          icon={<MdOutlineWbSunny />}
           side="right"
           param="Solar Radiasi"
           unit="w/m2"
           value={sensorData.sr}
         />
       </div>
-      {/* <div className="flex flex-col mr-3 w-1/2 gap-4">
-        <TextValue side="right" />
-      </div> */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 ">
         <Link href={"/report"}>
           <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black text-white">
             Lihat Laporan{" "}
@@ -57,7 +60,7 @@ export default function ParameterRight({
             </svg>
           </button>
         </Link>
-        <Link href={'/graph'}>
+        <Link href={"/graph"}>
           <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black text-white">
             Grafik / Trend{" "}
             <svg

@@ -105,7 +105,7 @@ export default function Content() {
           <CenterParameter sensorData={sensorData} />
         )}
       </div>
-      <div className="w-1/3 px-12 pt-11">
+      <div className="w-1/3 px-12 pt-12">
         {process.env.AQMS_TYPE === "mini" ||
         process.env.AQMS_TYPE === "supermini" ? (
           <ParameterRightMini sensorData={sensorData} />
