@@ -24,6 +24,7 @@ export default function Content() {
     temperature: "",
     pressure: "",
     sr: "",
+    uv: "",
     rain_intensity: "",
     stat_conn: "",
     feedback: "",

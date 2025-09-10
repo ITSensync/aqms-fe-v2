@@ -7,6 +7,7 @@ import WifiOffIcon from "@mui/icons-material/WifiOff";
 import { useRouter } from "next/navigation";
 import { locationService } from "../data/actions";
 import { Location } from "../types/Datatypes";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOnline, setIsOnline] = useState(true);
@@ -104,34 +105,85 @@ export default function Navbar() {
               </svg>
 
               <a className="font-sf-pro-rounded text-lg text-blue-darkest">
-                <span className="font-extrabold">{location.lat.toFixed(3)}</span>{" "}
+                <span className="font-extrabold">
+                  {location.lat.toFixed(3)}
+                </span>{" "}
                 <span className="">&deg;LU</span>
               </a>
               <a className="font-sf-pro-rounded text-lg text-blue-darkest">,</a>
               <a className="font-sf-pro-rounded text-lg text-blue-darkest">
-                <span className="font-extrabold">{location.long.toFixed(3)}</span>{" "}
+                <span className="font-extrabold">
+                  {location.long.toFixed(3)}
+                </span>{" "}
                 <span className="">&deg;LS</span>
               </a>
             </div>
           </div>
         </div>
         <div className="flex gap-5 items-center">
-          <div className="dropdown dropdown-end">
-            <DigitalClock />
-          </div>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle text-white text-5xl"
-            >
-              {isOnline ? (
-                <WifiIcon fontSize="inherit" />
-              ) : (
-                <WifiOffIcon fontSize="inherit" />
-              )}
-            </div>
-          </div>
+          <ul className="menu menu-horizontal px-1 items-center gap-2 z-10">
+            <li>
+              <details>
+                <summary className="font-sf-pro-rounded font-bold text-2xl text-white">
+                  Menu
+                </summary>
+                <ul className="bg-blue-light rounded-t-none p-2">
+                  <li className="w-full mb-2">
+                    <Link
+                      href={"/report"}
+                      className="flex flex-row items-center w-full justify-between border-0  hover:bg-blue-darkest font-sf-pro-rounded font-black text-white"
+                    >
+                      <p>Lihat Laporan</p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="size-6 text-white"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z"
+                          clipRule="evenodd"
+                        />
+                        <path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
+                      </svg>
+                    </Link>
+                  </li>
+                
+                  <li className="w-full">
+                    <Link
+                      href={"/graph"}
+                      className="flex flex-row items-center w-full justify-between border-0  hover:bg-blue-darkest font-sf-pro-rounded font-black text-white"
+                    >
+                      <p>Grafik / Trend</p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="size-6 text-white"
+                      >
+                        <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
+                      </svg>
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li className="flex flex-row items-center">
+              <DigitalClock />
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle text-white text-5xl"
+              >
+                {isOnline ? (
+                  <WifiIcon fontSize="inherit" />
+                ) : (
+                  <WifiOffIcon fontSize="inherit" />
+                )}
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

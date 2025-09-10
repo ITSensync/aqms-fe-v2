@@ -5,6 +5,7 @@ import Link from "next/link";
 import { IoRainyOutline } from "react-icons/io5";
 import { GiSpeedometer } from "react-icons/gi";
 import { MdOutlineWbSunny } from "react-icons/md";
+import { TbUvIndex } from "react-icons/tb";
 
 export default function ParameterRightMini({
   sensorData,
@@ -41,10 +42,16 @@ export default function ParameterRightMini({
           value={sensorData.sr}
         />
       </div>
-      {/* <div className="flex flex-col mr-3 w-1/2 gap-4">
-        <TextValue side="right" />
-      </div> */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4">
+        <TextValue
+          icon={<TbUvIndex/>}
+          side="right"
+          param="UV"
+          unit="-"
+          value={sensorData.uv}
+        />
+      </div>
+      {/* <div className="flex flex-col gap-4">
         <Link href={"/report"}>
           <button className="btn btn-xl bg-blue-darkest border-0 hover:bg-blue-950 font-sf-pro-rounded font-black text-white">
             Lihat Laporan{" "}
@@ -76,7 +83,7 @@ export default function ParameterRightMini({
             </svg>
           </button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

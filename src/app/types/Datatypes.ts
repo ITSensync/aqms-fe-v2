@@ -15,6 +15,7 @@ export type AirQuality = {
   temperature: string;
   pressure: string;
   sr: string;
+  uv: string;
   rain_intensity: string;
   stat_conn: string;
   feedback: string;
