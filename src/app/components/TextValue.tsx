@@ -14,7 +14,7 @@ export default function TextValue({
   icon?: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="px-4 flex flex-col gap-4">
       <p
         className={`font-sf-pro text-xl text-blue-darkest font-bold flex items-center gap-2 ${
           side === "right" ? "justify-end" : "justify-start"
@@ -33,7 +33,7 @@ export default function TextValue({
         )}
       </p>
 
-      <p className="font-sf-pro text-4xl text-blue-darkest font-black text-center">
+      <p className="font-sf-pro text-5xl text-blue-darkest font-black text-center">
         {value}
       </p>
       <p
@@ -43,6 +43,6 @@ export default function TextValue({
       >
         {unit}
       </p>
-    </>
+    </div>
   );
 }

@@ -13,34 +13,34 @@ export default function ParameterLeft({
   sensorData: AirQuality;
 }) {
   return (
-    <div className="flex flex-col justify-between h-[77vh]">
-      <div className="flex flex-col ml-3 w-1/2 gap-4">
+    <div className="flex flex-col justify-between h-fit  gap-16">
+      <div className="w-full h-full  mt-4">
         <TextValue
-          icon={<FaCompass />}
+          icon={<FaCompass size={30}/>}
           param="Arah Angin"
           value={sensorData.wd}
           unit={generateWindDirection(Number(sensorData.wd))}
         />
       </div>
-      <div className="flex flex-col ml-3 w-1/2 gap-4">
+      <div className="w-full h-full  mt-4">
         <TextValue
-          icon={<GiWindsock />}
+          icon={<GiWindsock size={30}/>}
           param="Kec. Angin"
           unit="mph"
           value={sensorData.ws}
         />
       </div>
-      <div className="flex flex-col ml-3 w-1/2gap-4">
+      <div className="w-full h-full  mt-6">
         <TextValue
-          icon={<FaTemperatureHalf />}
+          icon={<FaTemperatureHalf size={30}/>}
           param="Suhu"
           unit="°C"
           value={sensorData.temperature}
         />
       </div>
-      <div className="flex flex-col ml-3 w-1/2 gap-4">
+      <div className="w-full h-full  mt-6">
         <TextValue
-          icon={<RiWaterPercentFill />}
+          icon={<RiWaterPercentFill size={30}/>}
           param="Kelembapan"
           unit="%RH"
           value={sensorData.humidity}

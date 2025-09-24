@@ -17,7 +17,7 @@ export default function Home() {
         process.env.AQMS_TYPE === "mini"
           ? `bg-[url('/bg_mini_v2.svg')]`
           : process.env.AQMS_TYPE === 'supermini' ? `bg-[url('/bg_super_mini_v2.svg')]` : `bg-[url('/bg.svg')]`
-      } bg-cover bg-center bg-no-repeat h-screen`}
+      } bg-cover bg-center bg-no-repeat h-screen flex`}
     >
       <Navbar />
       <Content />
