@@ -22,7 +22,7 @@ export default function DigitalClock() {
       // Format date
       const formattedDate = now.toLocaleDateString("en-US", {
         year: "numeric",
-        month: "long",
+        month: "numeric",
         day: "numeric",
       });
 
@@ -41,9 +41,9 @@ export default function DigitalClock() {
   }, []);
 
   return (
-    <div className="flex flex-col items-end font-sf-pro-rounded text-white">
-      <div className="text-xl font-extrabold">{dateTime.date}</div>
-      <div className="text-xl font-medium ">{dateTime.time}</div>
+    <div className="flex flex-col items-center font-sf-pro-rounded text-white">
+      <div className="text-lg font-extrabold">{dateTime.date}</div>
+      <div className="text-lg font-medium ">{dateTime.time}</div>
     </div>
   );
 }

@@ -20,3 +20,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-sf-pro), var(--font-sf-pro-rounded), Arial, Helvetica, sans-serif;
 }
+
+.navbar {
+  display: flex;
+  width: 10%;
+  height: 100%;
+  align-items: center;
+  padding: 0.5rem /* 8px */;
+  min-height: 4rem /* 64px */;
+}

@@ -79,18 +79,19 @@ export default function Navbar() {
   };
 
   return (
-    <div className="navbar bg-blue-light/50 shadow-sm">
-      <div className="w-full flex justify-between items-center mx-5 my-2">
+    <div className="navbar bg-blue-light/80 shadow-sm w-full flex justify-center">
+      <div className="h-full flex flex-col justify-between items-center my-2">
         <div
-          className="flex flex-row items-center gap-4 hover:cursor-pointer"
+          className="flex flex-col items-center justify-center gap-2 my-2 hover:cursor-pointer "
           onClick={handleHomeClick}
         >
           <Image src={"/klhk.png"} width={80} height={80} alt="klhk logo" />
           <div className="flex flex-col gap-1">
-            <a className="text-3xl text-white font-extrabold font-sf-pro-rounded">
-              SPKU - {process.env.AQMS_SITE}
+            <a className="text-2xl text-white text-center font-extrabold font-sf-pro-rounded">
+              {process.env.AQMS_SITE}
             </a>
-            <div className="flex flex-row gap-2 align-middle items-center">
+
+            <div className="flex flex-row gap-2 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -104,86 +105,69 @@ export default function Navbar() {
                 />
               </svg>
 
-              <a className="font-sf-pro-rounded text-lg text-blue-darkest">
-                <span className="font-extrabold">
-                  {location.lat.toFixed(3)}
-                </span>{" "}
-                <span className="">&deg;LU</span>
-              </a>
-              <a className="font-sf-pro-rounded text-lg text-blue-darkest">,</a>
-              <a className="font-sf-pro-rounded text-lg text-blue-darkest">
-                <span className="font-extrabold">
-                  {location.long.toFixed(3)}
-                </span>{" "}
-                <span className="">&deg;LS</span>
-              </a>
+              <div className="flex flex-col">
+                <a className="font-sf-pro-rounded text-sm text-blue-darkest">
+                  <span className="font-extrabold">
+                    {location.long.toFixed(2)}
+                  </span>{" "}
+                  <span className="">&deg;LS</span>
+                </a>
+                <a className="font-sf-pro-rounded text-sm text-blue-darkest">
+                  <span className="font-extrabold">
+                    {location.lat.toFixed(2)}
+                  </span>{" "}
+                  <span className="">&deg;LU</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex gap-5 items-center">
-          <ul className="menu menu-horizontal px-1 items-center gap-2 z-10">
-            <li>
-              <details>
-                <summary className="font-sf-pro-rounded font-bold text-2xl text-white">
-                  Menu
-                </summary>
-                <ul className="bg-blue-light rounded-t-none p-2">
-                  <li className="w-full mb-2">
-                    <Link
-                      href={"/report"}
-                      className="flex flex-row items-center w-full justify-between border-0  hover:bg-blue-darkest font-sf-pro-rounded font-black text-white"
-                    >
-                      <p>Lihat Laporan</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="size-6 text-white"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z"
-                          clipRule="evenodd"
-                        />
-                        <path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
-                      </svg>
-                    </Link>
-                  </li>
-                
-                  <li className="w-full">
-                    <Link
-                      href={"/graph"}
-                      className="flex flex-row items-center w-full justify-between border-0  hover:bg-blue-darkest font-sf-pro-rounded font-black text-white"
-                    >
-                      <p>Grafik / Trend</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="size-6 text-white"
-                      >
-                        <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
-                      </svg>
-                    </Link>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li className="flex flex-row items-center">
-              <DigitalClock />
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle text-white text-5xl"
+          <div className="mb-2 mt-15 gap-12 flex flex-col">
+            <Link
+              href={"/report"}
+              className="border-0  hover:bg-blue-darkest font-sf-pro-rounded font-black text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="size-10 text-white"
               >
-                {isOnline ? (
-                  <WifiIcon fontSize="inherit" />
-                ) : (
-                  <WifiOffIcon fontSize="inherit" />
-                )}
-              </div>
-            </li>
-          </ul>
+                <path
+                  fillRule="evenodd"
+                  d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z"
+                  clipRule="evenodd"
+                />
+                <path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
+              </svg>
+            </Link>
+            <Link
+              href={"/graph"}
+              className="border-0  hover:bg-blue-darkest font-sf-pro-rounded font-black text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="size-10 text-white"
+              >
+                <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 items-center">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle text-white text-5xl"
+          >
+            {isOnline ? (
+              <WifiIcon fontSize="inherit" />
+            ) : (
+              <WifiOffIcon fontSize="inherit" />
+            )}
+          </div>
+          <DigitalClock />
         </div>
       </div>
     </div>
