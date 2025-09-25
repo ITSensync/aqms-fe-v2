@@ -90,14 +90,13 @@ export default function Content() {
   return (
     <div className="flex flex-row w-full justify-between">
       <div className="w-1/3 pl-20 pr-8 pt-12">
-        {process.env.AQMS_TYPE === "mini" ||
-        process.env.AQMS_TYPE === "supermini" ? (
+        {process.env.AQMS_TYPE === "supermini" ? (
           <ParameterLeftMini sensorData={sensorData} />
         ) : (
           <ParameterLeft sensorData={sensorData} />
         )}
       </div>
-      <div className="w-1/3 px-12 pt-12">
+      <div className={`w-1/3 pr-5 ${process.env.AQMS_TYPE === 'fixed' ? 'pl-8' : 'pl-4'} `}>
         {process.env.AQMS_TYPE === "mini" ? (
           <CenterParameterMini sensorData={sensorData} />
         ) : process.env.AQMS_TYPE === "supermini" ? (
@@ -107,8 +106,7 @@ export default function Content() {
         )}
       </div>
       <div className="w-1/3 pr-18 pl-10 pt-12">
-        {process.env.AQMS_TYPE === "mini" ||
-        process.env.AQMS_TYPE === "supermini" ? (
+        {process.env.AQMS_TYPE === "supermini" ? (
           <ParameterRightMini sensorData={sensorData} />
         ) : (
           <ParameterRight sensorData={sensorData} />

@@ -15,13 +15,15 @@ export default function GaugeDiagram({
   name?: string;
 }) {
   return (
-    <>
+    <div className={`${process.env.AQMS_TYPE === "mini" && "flex flex-row"}`}>
       <GaugeComponent
         value={Number(value)}
         className={`${
           process.env.AQMS_TYPE === "mini"
-            ? "w-[14vw] ml-6 -mr-4"
-            : process.env.AQMS_TYPE === "supermini" ? "w-[20vw] ml-10" : "w-[10vw] ml-10 -mt-9"
+            ? ""
+            : process.env.AQMS_TYPE === "supermini"
+            ? "w-[20vw] ml-10"
+            : "-mb-8"
         }`}
         type="radial"
         arc={{
@@ -88,14 +90,14 @@ export default function GaugeDiagram({
         }}
       />
       {process.env.AQMS_TYPE === "mini" ? (
-        <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center gap-2">
-          <div className="flex flex-row items-end gap-0.5">
-            <p className="font-black text-4xl">{value}</p>
-            <p className="text-xl">{unit}</p>
-          </div>
-          <p className="text-2xl font-semibold text-center">{name}</p>
+        <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-start gap-2">
+          <p className="font-black text-4xl">{value}</p>
+          {/* <div className="flex flex-row items-start gap-0.5"></div> */}
+          <p className="text-2xl font-semibold">
+            {name} ({unit})
+          </p>
         </div>
-      ) : process.env.AQMS_TYPE === "supermini" ?  (
+      ) : process.env.AQMS_TYPE === "supermini" ? (
         <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center gap-4">
           <div className="flex flex-row items-end gap-0.5">
             <p className="font-black text-5xl">{value}</p>
@@ -104,14 +106,14 @@ export default function GaugeDiagram({
           <p className="text-4xl font-semibold text-center">{name}</p>
         </div>
       ) : (
-        <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center ml-6 -mt-6">
+        <div className="font-sf-pro-rounded text-blue-darkest flex flex-col justify-center items-center">
           <div className="flex flex-row items-end gap-0.5">
-            <p className="font-black text-md">{value}</p>
-            <p className="text-xs">{unit}</p>
+            <p className="font-black text-xl">{value}</p>
+            <p className="text-md">{unit}</p>
           </div>
-          <p className="text-md font-semibold text-center">{name}</p>
+          <p className="text-lg font-semibold text-center">{name}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }
