@@ -5,7 +5,7 @@ import ContentReport from "../components/ContentReport";
 export default function ReportPage() {
   return (
     <div
-      className={`bg-[url('/bg_clean.svg')] bg-cover bg-center bg-no-repeat h-screen`}
+      className={`bg-[url('/bg_clean.svg')] bg-cover bg-center bg-no-repeat h-screen flex w-screen`}
     >
       <Navbar />
       <ContentReport/>

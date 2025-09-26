@@ -51,14 +51,14 @@ export default function LineGraph({
     rain: false,
   },
   buttonStatePm = { pm10: false, pm25: false },
-  height = 100,
+  // height = 100,
 }: {
   param: string;
   sensorData: AirQuality[];
   buttonStateGas?: StateGas;
   buttonStateWeather?: StateWeather;
   buttonStatePm?: StatePM;
-  height: number;
+  // height: number;
 }) {
   Chart.register(
     CategoryScale,
@@ -252,6 +252,7 @@ export default function LineGraph({
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -280,7 +281,7 @@ export default function LineGraph({
     <Line
       data={data}
       options={options}
-      height={height}
+      // height={height}
       className="p-4 font-sf-pro"
     />
   );

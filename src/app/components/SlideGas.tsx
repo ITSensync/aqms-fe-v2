@@ -133,11 +133,11 @@ export default function SlideGas({
         )}
       </div>
       <div className="p-4">
-        <div className="w-full bg-white opacity-85 p-2 rounded-box">
+        <div className="w-full bg-white opacity-85 p-2 rounded-box chart-container h-[calc(100vh-150px)]">
           <LineGraph
             param="gas"
             sensorData={gasData}
-            height={process.env.AQMS_TYPE === "supermini" ? 160 : 120}
+            // height={process.env.AQMS_TYPE === "supermini" ? 160 : 120}
             buttonStateGas={buttonState}
           />
         </div>

@@ -35,9 +35,9 @@ export default function ContentReport() {
   }, [page]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-full">
       <div className="bg-blue-light p-4 rounded-box opacity-85 mb-4">
-        <p className="font-sf-pro-rounded text-2xl font-bold text-white">
+        <p className="font-sf-pro-rounded text-2xl font-bold text-white text-center">
           Report Parameter Kualitas Udara
         </p>
       </div>
