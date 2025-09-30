@@ -41,9 +41,9 @@ export default function DigitalClock() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center font-sf-pro-rounded text-white">
-      <div className="text-lg font-extrabold">{dateTime.date}</div>
-      <div className="text-lg font-medium ">{dateTime.time}</div>
+    <div className="flex flex-col font-sf-pro-rounded text-white text-justify">
+      <p className="text-lg font-extrabold text-cyan-500">{dateTime.date}</p>
+      <p className="text-lg font-medium text-cyan-500">{dateTime.time}</p>
     </div>
   );
 }

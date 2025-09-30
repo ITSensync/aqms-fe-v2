@@ -1,6 +1,8 @@
 'use client';
 import Navbar from "./components/Navbar";
 import Content from "./components/Content";
+import LayoutFixed from "./components/LayoutFixed";
+import LayoutMini from "./components/LayoutMini";
 
 export default function Home() {
   /* useEffect(() => {
@@ -12,15 +14,8 @@ export default function Home() {
   }, []); */
 
   return (
-    <div
-      className={`${
-        process.env.AQMS_TYPE === "mini"
-          ? `bg-[url('/bg-alt.svg')]`
-          : process.env.AQMS_TYPE === 'supermini' ? `bg-[url('/bg_super_mini_v2.svg')]` : `bg-[url('/bg-alt.svg')]`
-      } bg-cover bg-center bg-no-repeat h-screen flex`}
-    >
-      <Navbar />
-      <Content />
-    </div>
+    <>
+      {process.env.AQMS_TYPE === 'fixed' ? <LayoutFixed/> : <LayoutMini/> }
+    </>
   );
 }
