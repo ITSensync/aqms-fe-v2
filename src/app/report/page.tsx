@@ -1,14 +1,15 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import ContentReport from "../components/ContentReport";
+import LayoutReportFixed from "../components/LayoutReportFixed";
+import LayoutReportMini from "../components/LayoutReportMinit";
 
 export default function ReportPage() {
   return (
-    <div
-      className={`bg-[url('/bg_clean.svg')] bg-cover bg-center bg-no-repeat h-screen flex w-screen`}
-    >
-      <Navbar />
-      <ContentReport/>
-    </div>
+    <>
+      {process.env.AQMS_TYPE === "fixed" ? (
+        <LayoutReportFixed />
+      ) : (
+        <LayoutReportMini />
+      )}
+    </>
   );
 }

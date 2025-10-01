@@ -79,7 +79,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="navbar bg-blue-light/80 shadow-sm w-full flex justify-center">
+    <div className="navbar-side bg-blue-light/80 shadow-sm w-full flex justify-center">
       <div className="h-full flex flex-col justify-between items-center my-2">
         <div className="flex flex-col items-center justify-center gap-2 my-2 hover:cursor-pointer ">
           <div className="flex flex-col items-center" onClick={handleHomeClick}>

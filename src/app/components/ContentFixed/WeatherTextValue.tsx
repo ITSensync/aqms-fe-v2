@@ -12,7 +12,7 @@ export default function WeatherTextValue({
   icon?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col bg-zinc-900 shadow-2xl border border-neutral-800 rounded-2xl h-full gap-5 items-center justify-center">
+    <div className="flex flex-col bg-zinc-900 shadow-2xl border border-neutral-800 rounded-2xl h-full gap-3 items-center justify-center font-sf-pro">
       <span className="">{icon}</span>
       <p className=" text-lg">{param}</p>
       <div className={`flex flex-row ${param === 'Arah Angin' ? 'items-start': 'items-end'}`}>

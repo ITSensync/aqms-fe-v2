@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { locationService } from "@/app/data/actions";
 import { Location } from "@/app/types/Datatypes";
-import DigitalClock from "../DigitalClock";
+import DigitalClock from "./DigitalClock";
 import ServerStatus from "./ServerStatus";
 
 export default function Navbar() {

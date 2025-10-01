@@ -281,7 +281,7 @@ export default function LineGraph({
     <Line
       data={data}
       options={options}
-      // height={height}
+      height={100}
       className="p-4 font-sf-pro"
     />
   );

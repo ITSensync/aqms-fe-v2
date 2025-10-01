@@ -102,13 +102,21 @@ export default function SlideWeather({
     });
   };
 
+  const buttonStateColor = (state: boolean) => {
+    if (process.env.AQMS_TYPE === "fixed") {
+      return state ? "bg-cyan-700" : "bg-cyan-500 opacity-85";
+    } else {
+      return state ? "bg-blue-darkest" : "bg-blue-light opacity-85";
+    }
+  };
+
   return (
     <>
       <div className="grid grid-cols-4 gap-10 p-4 mt-4">
         <div
           onClick={handleBtnWS}
           className={`${
-            buttonState.ws ? "bg-blue-darkest" : "bg-blue-light opacity-85"
+            buttonStateColor(buttonState.ws)
           } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           KECEPATAN ANGIN
@@ -116,24 +124,20 @@ export default function SlideWeather({
         <div
           onClick={handleBtnWD}
           className={`${
-            buttonState.wd ? "bg-blue-darkest" : "bg-blue-light opacity-85"
+            buttonStateColor(buttonState.wd)
           } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           ARAH ANGIN
         </div>
         <div
           onClick={handleBtnTemp}
-          className={`${
-            buttonState.temp ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+          className={`${buttonStateColor(buttonState.wd)} text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           SUHU
         </div>
         <div
           onClick={handleBtnHum}
-          className={`${
-            buttonState.hum ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+          className={`${buttonStateColor(buttonState.hum)} text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           KELEMBAPAN
         </div>
@@ -141,31 +145,31 @@ export default function SlideWeather({
       <div className="grid grid-cols-3 gap-10 p-4">
         <div
           onClick={handleBtnRain}
-          className={`${
-            buttonState.rain ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+          className={`${buttonStateColor(buttonState.rain)} text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           CURAH HUJAN
         </div>
         <div
           onClick={handleBtnPress}
-          className={`${
-            buttonState.press ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+          className={`${buttonStateColor(buttonState.press)} text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           TEKANAN
         </div>
         <div
           onClick={handleBtnSR}
-          className={`${
-            buttonState.sr ? "bg-blue-darkest" : "bg-blue-light opacity-85"
-          } text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
+          className={`${buttonStateColor(buttonState.sr)} text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
           SOLAR RADIASI
         </div>
       </div>
       <div className="p-4">
-        <div className="w-full bg-white opacity-85 p-2 rounded-box chart-container h-[calc(100vh-240px)]">
+        <div
+          className={`w-full bg-white opacity-85 p-2 rounded-box chart-container ${
+            process.env.AQMS_TYPE == "fixed"
+              ? "h-[calc(100vh-350px)]"
+              : "h-[calc(100vh-150px)]"
+          }`}
+        >
           <LineGraph
             param="weather"
             sensorData={weatherData}
