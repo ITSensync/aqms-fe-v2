@@ -1,22 +1,17 @@
 import React from "react";
+import TextValue from "./GasTextValue";
 
 export default function Gas() {
   return (
-    <div className="grid grid-cols-3 gap-4 w-1/2 bg-zinc-900 shadow-2xl border border-neutral-800 h-full items-center justify-center rounded-xl p-3">
-      <div className="flex flex-col items-center justify-center border border-neutral-800 gap-4 p-5 rounded-xl">
-        <p>HC</p>
-        <p>100</p>
-        <p>μg/m3</p>
+    <div className="flex flex-col gap-6 w-1/2  h-full items-center justify-between rounded-xl p-3">
+      <div className="flex flex-row w-full gap-6">
+        <TextValue param="HC" unit="μg/m3" value={40} />
+        <TextValue param="CO" unit="μg/m3" value={150} />
+        <TextValue param="SO2" unit="μg/m3" value={32} />
       </div>
-      <div className="flex flex-col items-center justify-center border border-neutral-800 gap-4 p-5 rounded-xl">
-        <p>HC</p>
-        <p>100</p>
-        <p>μg/m3</p>
-      </div>
-      <div className="flex flex-col items-center justify-center border border-neutral-800 gap-4 p-5 rounded-xl">
-        <p>HC</p>
-        <p>100</p>
-        <p>μg/m3</p>
+      <div className="flex flex-row w-2/3 gap-6">
+        <TextValue param="O3" unit="μg/m3" value={55} />
+        <TextValue param="NO2" unit="μg/m3" value={120.5} />
       </div>
     </div>
   );
