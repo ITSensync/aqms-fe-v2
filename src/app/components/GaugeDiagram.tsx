@@ -10,7 +10,7 @@ export default function GaugeDiagram({
   unit = "W/m3",
   name = "Lorem",
 }: {
-  value?: string;
+  value?: string | number;
   unit?: string;
   name?: string;
 }) {

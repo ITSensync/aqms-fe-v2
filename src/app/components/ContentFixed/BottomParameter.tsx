@@ -71,7 +71,7 @@ export default function BottomParameter({
         value={solar}
         unit="w/m2"
       />
-      <WeatherTextValue icon={<TbUvIndex size={50} />} param="UV" value={rain} />
+      <WeatherTextValue icon={<TbUvIndex size={50} />} param="UV" value={uv} />
     </div>
   );
 }

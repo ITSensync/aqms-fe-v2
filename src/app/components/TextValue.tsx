@@ -8,7 +8,7 @@ export default function TextValue({
   icon,
 }: {
   param?: string;
-  value?: string;
+  value?: string | number;
   unit?: string;
   side?: string;
   icon?: React.ReactNode;
