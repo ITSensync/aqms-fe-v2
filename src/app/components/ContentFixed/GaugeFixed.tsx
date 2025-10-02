@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import { formatNumber } from "@/app/utils/formatter";
 const GaugeComponent = dynamic(() => import("react-gauge-component"), {
   ssr: false,
 });
@@ -48,7 +49,7 @@ export default function GaugeFixed({
       {/* Container untuk gauge + value di tengah */}
       <div className="relative flex items-center justify-center w-full">
         <GaugeComponent
-          value={Number(value)}
+          value={Number(formatNumber(value))}
           className="-mb-10 w-full"
           type="radial"
           arc={{

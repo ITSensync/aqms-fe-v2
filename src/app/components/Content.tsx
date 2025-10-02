@@ -12,20 +12,20 @@ import CenterParameterSuperMini from "./CenterParameterSuperMini";
 
 export default function Content() {
   const [sensorData, setSensorData] = useState<AirQuality>({
-    id: "",
+    id: 0,
     tanggal: "",
     jam: "",
-    no2: "",
-    so2: "",
-    pm25: "",
-    ws: "",
-    wd: "",
-    humidity: "",
-    temperature: "",
-    pressure: "",
-    sr: "",
-    uv: "",
-    rain_intensity: "",
+    no2: 0,
+    so2: 0,
+    pm25: 0,
+    ws: 0,
+    wd: 0,
+    humidity: 0,
+    temperature: 0,
+    pressure: 0,
+    sr: 0,
+    uv: 0,
+    rain_intensity: 0,
     stat_conn: "",
     feedback: "",
     feedback2: "",
@@ -96,7 +96,11 @@ export default function Content() {
           <ParameterLeft sensorData={sensorData} />
         )}
       </div>
-      <div className={`w-1/3 pr-5 ${process.env.AQMS_TYPE === 'fixed' ? 'pl-8' : 'pl-4'} `}>
+      <div
+        className={`w-1/3 pr-5 ${
+          process.env.AQMS_TYPE === "fixed" ? "pl-8" : "pl-4"
+        } `}
+      >
         {process.env.AQMS_TYPE === "mini" ? (
           <CenterParameterMini sensorData={sensorData} />
         ) : process.env.AQMS_TYPE === "supermini" ? (
