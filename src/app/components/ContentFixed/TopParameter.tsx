@@ -9,7 +9,7 @@ export default function TopParameter({
   sensorData: AirQuality;
 }) {
   return (
-    <div className="text-cyan-500 h-[calc(100vh-400px)] flex flex-row p-3 gap-4">
+    <div className="text-cyan-500 h-[calc(100vh-375px)] flex flex-row p-3 gap-4">
       <Pm
         pm10Value={sensorData.pm10}
         pm25Value={sensorData.pm25}

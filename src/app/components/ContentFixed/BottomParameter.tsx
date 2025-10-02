@@ -28,7 +28,7 @@ export default function BottomParameter({
   uv: number;
 }) {
   return (
-    <div className="text-cyan-500 grid grid-cols-8 h-[calc(100vh-600px)] p-3 gap-4">
+    <div className="text-cyan-500 grid grid-cols-8 h-[calc(100vh-550px)] p-3 gap-4">
       <WeatherTextValue
         icon={<FaCompass size={50} />}
         param="Arah Angin"
