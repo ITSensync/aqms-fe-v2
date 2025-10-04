@@ -6,11 +6,11 @@ import WifiOffIcon from "@mui/icons-material/WifiOff";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { locationService } from "@/app/data/actions";
-import { Location } from "@/app/types/Datatypes";
+import { AirQuality, Location } from "@/app/types/Datatypes";
 import DigitalClock from "./DigitalClock";
 import ServerStatus from "./ServerStatus";
 
-export default function Navbar() {
+export default function Navbar({ sensorData }: { sensorData: AirQuality }) {
   const [isOnline, setIsOnline] = useState(true);
   const [location, setLocation] = useState({
     lat: 0,
@@ -131,7 +131,11 @@ export default function Navbar() {
           </div>
         </div>
         <div>
-          <ServerStatus />
+          <ServerStatus
+            tanggal={sensorData.tanggal}
+            waktu={sensorData.jam}
+            feedback={sensorData.feedback}
+          />
         </div>
         <div className="flex gap-5 items-center">
           <ul className="menu menu-horizontal px-1 items-center gap-2 z-10">

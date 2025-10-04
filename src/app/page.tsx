@@ -1,6 +1,4 @@
 'use client';
-import Navbar from "./components/Navbar";
-import Content from "./components/Content";
 import LayoutFixed from "./components/LayoutFixed";
 import LayoutMini from "./components/LayoutMini";
 

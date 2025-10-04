@@ -12,7 +12,6 @@ export default function WeatherTextValue({
   unit?: string;
   icon?: React.ReactNode;
 }) {
-  console.log(value);
   return (
     <div className="flex flex-col bg-zinc-900/50 shadow-2xl rounded-2xl h-full gap-3 items-center justify-center font-sf-pro">
       <span className="">{icon}</span>
