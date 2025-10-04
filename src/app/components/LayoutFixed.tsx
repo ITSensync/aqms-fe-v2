@@ -4,7 +4,7 @@ import Content from './ContentFixed/Content'
 
 export default function LayoutFixed() {
   return (
-    <div className='h-screen bg-zinc-900'>
+    <div className='h-screen bg-zinc-950'>
       <Navbar/>
       <Content/>
     </div>
