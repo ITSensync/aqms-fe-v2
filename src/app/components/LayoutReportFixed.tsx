@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from "react";
 import Navbar from "./ContentFixed/Navbar";
 import Report from "./ContentFixed/Report";
