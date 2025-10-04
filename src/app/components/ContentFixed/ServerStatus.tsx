@@ -18,6 +18,8 @@ export default function ServerStatus({
   const [jam, menit] = waktu.split(":");
   const waktuBaru = `${jam}:${menit}`;
 
+  console.log(IsTimeUpdate(tanggal, waktu));
+
   return (
     <div className="flex flex-col font-sf-pro-rounded text-center">
       <p className="text-cyan-500 font-bold text-2xl">
@@ -30,13 +32,13 @@ export default function ServerStatus({
         <span className="">
           <div
             className={`badge ${
-              IsTimeUpdate(tanggal, waktu) || feedback.includes("success")
+              IsTimeUpdate(tanggal, waktu) && feedback.includes("success")
                 ? "badge-success"
                 : "badge-error"
             }`}
           >
             <span className="text-lg">
-              {feedback.includes("success")
+              {IsTimeUpdate(tanggal, waktu) && feedback.includes("success")
                 ? "Server Connected"
                 : "Server Disconnected"}
             </span>
