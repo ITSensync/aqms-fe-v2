@@ -21,7 +21,7 @@ export default function Report() {
   };
 
   const getColSpan = () => {
-    if (process.env.AQMS_TYPE === "normal") {
+    if (process.env.AQMS_TYPE === "fixed") {
       return 16;
     } else if (process.env.AQMS_TYPE === "mini") {
       return 12;
@@ -48,7 +48,7 @@ export default function Report() {
             <tr>
               <th></th>
               <th>Waktu</th>
-              {process.env.AQMS_TYPE === "normal" ? (
+              {process.env.AQMS_TYPE === "fixed" ? (
                 <>
                   <th>PM10</th>
                   <th>PM25</th>
@@ -86,7 +86,7 @@ export default function Report() {
                 <tr key={data.id}>
                   <td>{rowNumber}</td>
                   <td>{data.jam}</td>
-                  {process.env.AQMS_TYPE === "normal" ? (
+                  {process.env.AQMS_TYPE === "fixed" ? (
                     <>
                       <td>{data.pm10}</td>
                       <td>{data.pm25}</td>
