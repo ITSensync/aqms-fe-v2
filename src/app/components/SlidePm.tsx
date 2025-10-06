@@ -53,7 +53,7 @@ export default function SlidePm({ pmData }: { pmData: AirQuality[] }) {
             buttonState.pm25
           )} text-white font-bold text-center w-full p-4 rounded-box cursor-pointer active:transition active:scale-90 active:ease-in-out`}
         >
-          PM25
+          PM2.5
         </div>
       </div>
       <div className="p-4">

@@ -51,7 +51,7 @@ export default function Report() {
               {process.env.AQMS_TYPE === "fixed" ? (
                 <>
                   <th>PM10</th>
-                  <th>PM25</th>
+                  <th>PM2.5</th>
                   <th>HC</th>
                   <th>SO2</th>
                   <th>NO2</th>
@@ -60,13 +60,13 @@ export default function Report() {
                 </>
               ) : process.env.AQMS_TYPE === "mini" ? (
                 <>
-                  <th>PM25</th>
+                  <th>PM2.5</th>
                   <th>SO2</th>
                   <th>NO2</th>
                 </>
               ) : (
                 <>
-                  <th>PM25</th>
+                  <th>PM2.5</th>
                 </>
               )}
               <th>Kec. Angin</th>
