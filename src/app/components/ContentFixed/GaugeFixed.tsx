@@ -33,11 +33,11 @@ export default function GaugeFixed({
   const generateColorPM25 = () => {
     switch (true) {
       case value >= 0 && value <= 15.5:
-        return ["#85ec83", "696969", "696969", "696969"];
+        return ["#85ec83", "#696969", "#696969", "#696969"];
       case value > 15.5 && value <= 55.4:
-        return ["#0070C0", "#0070C0", "696969", "696969"];
+        return ["#0070C0", "#0070C0", "#696969", "#696969"];
       case value > 55.4 && value <= 150.44:
-        return ["#faff77", "#faff77", "#faff77", "696969"];
+        return ["#faff77", "#faff77", "#faff77", "#696969"];
       case value > 150.44:
         return ["#EA4228", "#EA4228", "#EA4228", "#EA4228"];
       default:
