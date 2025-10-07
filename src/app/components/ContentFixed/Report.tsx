@@ -36,8 +36,8 @@ export default function Report() {
 
   return (
     <div className="p-6 w-full">
-      <div className="bg-cyan-500 p-4 rounded-box opacity-85 mb-4">
-        <p className="font-sf-pro-rounded text-2xl font-bold text-white text-center">
+      <div className="bg-cyan-500 p-2 rounded-box opacity-85 mb-4">
+        <p className="font-sf-pro-rounded text-xl font-bold text-white text-center">
           Report Parameter Kualitas Udara
         </p>
       </div>
@@ -78,7 +78,7 @@ export default function Report() {
               <th>Radiasi</th>
             </tr>
           </thead>
-          <tbody className="font-extrabold text-lg text-center">
+          <tbody className="font-extrabold text-md text-center">
             {sensorData.map((data, index) => {
               const rowNumber = (page - 1) * limit + (index + 1);
 
