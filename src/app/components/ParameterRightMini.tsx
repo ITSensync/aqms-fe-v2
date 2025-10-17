@@ -13,9 +13,9 @@ export default function ParameterRightMini({
   sensorData: AirQuality;
 }) {
   return (
-    <div className="flex flex-col justify-end items-end gap-17">
+    <div className="flex flex-col justify-end items-end gap-18">
       {/* PM10 */}
-      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4 mt-0 md:mt-10">
+      <div className="flex flex-col mr-3 md:mr-8 w-1/2 gap-4 mt-0 md:mt-13">
         <TextValue
           icon={<IoRainyOutline/>}
           side="right"

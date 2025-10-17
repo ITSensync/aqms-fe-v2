@@ -14,7 +14,7 @@ export default function ParameterLeftMini({
 }) {
   return (
     <div className="flex flex-col gap-17">
-      <div className="flex flex-col ml-3 md:ml-8 w-1/2 gap-4 mt-0 md:mt-10">
+      <div className="flex flex-col ml-3 md:ml-8 w-1/2 gap-4 mt-0 md:mt-13">
         <TextValue
           icon={<FaCompass />}
           param="Arah Angin"
