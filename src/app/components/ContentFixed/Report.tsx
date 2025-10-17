@@ -21,7 +21,7 @@ export default function Report() {
   };
 
   const getColSpan = () => {
-    if (process.env.AQMS_TYPE === "normal") {
+    if (process.env.AQMS_TYPE === "fixed") {
       return 16;
     } else if (process.env.AQMS_TYPE === "mini") {
       return 12;
@@ -36,8 +36,8 @@ export default function Report() {
 
   return (
     <div className="p-6 w-full">
-      <div className="bg-cyan-500 p-4 rounded-box opacity-85 mb-4">
-        <p className="font-sf-pro-rounded text-2xl font-bold text-white text-center">
+      <div className="bg-cyan-500 p-2 rounded-box opacity-85 mb-4">
+        <p className="font-sf-pro-rounded text-xl font-bold text-white text-center">
           Report Parameter Kualitas Udara
         </p>
       </div>
@@ -48,10 +48,10 @@ export default function Report() {
             <tr>
               <th></th>
               <th>Waktu</th>
-              {process.env.AQMS_TYPE === "normal" ? (
+              {process.env.AQMS_TYPE === "fixed" ? (
                 <>
                   <th>PM10</th>
-                  <th>PM25</th>
+                  <th>PM2.5</th>
                   <th>HC</th>
                   <th>SO2</th>
                   <th>NO2</th>
@@ -60,13 +60,13 @@ export default function Report() {
                 </>
               ) : process.env.AQMS_TYPE === "mini" ? (
                 <>
-                  <th>PM25</th>
+                  <th>PM2.5</th>
                   <th>SO2</th>
                   <th>NO2</th>
                 </>
               ) : (
                 <>
-                  <th>PM25</th>
+                  <th>PM2.5</th>
                 </>
               )}
               <th>Kec. Angin</th>
@@ -78,7 +78,7 @@ export default function Report() {
               <th>Radiasi</th>
             </tr>
           </thead>
-          <tbody className="font-extrabold text-lg text-center">
+          <tbody className="font-extrabold text-md text-center">
             {sensorData.map((data, index) => {
               const rowNumber = (page - 1) * limit + (index + 1);
 
@@ -86,7 +86,7 @@ export default function Report() {
                 <tr key={data.id}>
                   <td>{rowNumber}</td>
                   <td>{data.jam}</td>
-                  {process.env.AQMS_TYPE === "normal" ? (
+                  {process.env.AQMS_TYPE === "fixed" ? (
                     <>
                       <td>{data.pm10}</td>
                       <td>{data.pm25}</td>

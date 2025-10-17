@@ -6,11 +6,11 @@ import WifiOffIcon from "@mui/icons-material/WifiOff";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { locationService } from "@/app/data/actions";
-import { Location } from "@/app/types/Datatypes";
+import { AirQuality, Location } from "@/app/types/Datatypes";
 import DigitalClock from "./DigitalClock";
 import ServerStatus from "./ServerStatus";
 
-export default function Navbar() {
+export default function Navbar({ sensorData }: { sensorData: AirQuality }) {
   const [isOnline, setIsOnline] = useState(true);
   const [location, setLocation] = useState({
     lat: 0,
@@ -80,15 +80,15 @@ export default function Navbar() {
   };
 
   return (
-    <div className="navbar bg-zinc-900 shadow-xl">
+    <div className="navbar bg-zinc-900/50  shadow-lg">
       <div className="w-full flex justify-between items-center mx-5 my-2">
         <div
           className="flex flex-row items-center gap-6 hover:cursor-pointer"
           onClick={handleHomeClick}
         >
           <div className="flex flex-row">
-            <Image src={"/klhk.png"} width={80} height={80} alt="klhk logo" />
-            <div className="divider divider-horizontal"></div>
+            <Image src={"/dlh.png"} width={120} height={10} alt="DLH logo" />
+            <div className="divider divider-horizontal divider-accent"></div>
             <Image
               src={"/sensync-logo.png"}
               width={50}
@@ -131,7 +131,11 @@ export default function Navbar() {
           </div>
         </div>
         <div>
-          <ServerStatus />
+          <ServerStatus
+            tanggal={sensorData.tanggal}
+            waktu={sensorData.jam}
+            feedback={sensorData.feedback}
+          />
         </div>
         <div className="flex gap-5 items-center">
           <ul className="menu menu-horizontal px-1 items-center gap-2 z-10">
