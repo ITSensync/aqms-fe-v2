@@ -186,7 +186,7 @@ export default function Navbar({ sensorData }: { sensorData: AirQuality }) {
 
                   <li className="w-full">
                     <Link
-                      href={"http://localhost/spku/display/button.php"}
+                      href={"http://192.168.20.20/spku/display/button.php"}
                       target="_blank"
                       className="flex flex-row items-center w-full justify-between border-0  hover:bg-zinc-900 font-sf-pro-rounded font-black text-cyan-500"
                     >
