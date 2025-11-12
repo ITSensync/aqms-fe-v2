@@ -94,7 +94,7 @@ export default function Report() {
                       <td>{data.so2}</td>
                       <td>{data.no2}</td>
                       <td>{data.o3}</td>
-                      <td>{data.no2}</td>
+                      <td>{data.co}</td>
                     </>
                   ) : process.env.AQMS_TYPE === "mini" ? (
                     <>
