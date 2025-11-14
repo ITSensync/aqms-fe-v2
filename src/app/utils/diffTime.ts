@@ -10,8 +10,6 @@ export const IsTimeUpdate = (tanggal: string, waktu: string) => {
   // Ubah ke menit
   const diffMinutes = diffMs / 1000 / 60;
 
-  console.log(diffMinutes);
-
   if (diffMinutes > 15) {
     return false;
   } else {

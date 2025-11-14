@@ -58,9 +58,9 @@ export class SensorDataService {
       });
   };
 
-  getPagination = (page: number, limit: number) => {
+  getPagination = (page: number, limit: number, param: string) => {
     return this.instance
-      .get(`/pagination?page=${page}&limit=${limit}`)
+      .get(`/pagination/${param}?page=${page}&limit=${limit}`)
       .then((res) => {
         return res.data;
       })

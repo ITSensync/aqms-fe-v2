@@ -18,8 +18,6 @@ export default function ServerStatus({
   const [jam, menit] = waktu.split(":");
   const waktuBaru = `${jam}:${menit}`;
 
-  console.log(IsTimeUpdate(tanggal, waktu));
-
   return (
     <div className="flex flex-col font-sf-pro-rounded text-center">
       <p className="text-cyan-500 font-bold text-2xl">
