@@ -11,7 +11,7 @@ export default function ContentReport() {
 
   const fetchData = async () => {
     try {
-      const response = await sensorDataService.getPagination(page, limit);
+      const response = await sensorDataService.getPagination(page, limit, "");
       console.log(response);
       setTotalPage(response.pagination.total_page);
       setSensorData(response.data);
